@@ -1,0 +1,17 @@
+/**
+ *  What
+ *  passing data through the component tree without having to pass props down manually at every level, 
+ *  sharing data/state across components
+ * 
+ *  Why 
+ *  to avoid prop drilling
+ *  to make global state easily accessible
+ *  
+ *  When should use
+ *  global data/state that many components need (like user info, theme, language, authentication, etc.)
+ *  
+ *  How 
+ *  createContext() → makes a Context object.
+ *  .Provider → wraps components and provides a value (state, functions, etc.)
+ *  useContext() → lets any component read that value directly, without passing props down
+ */
