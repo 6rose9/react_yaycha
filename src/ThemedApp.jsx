@@ -1,4 +1,14 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+    createContext,
+    useContext,
+    useMemo,
+    useState
+} from "react";
+
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
 
 import {
     CssBaseline,
@@ -13,14 +23,45 @@ import {
     cyan,
 } from "@mui/material/colors";
 
-import App from "./App";
-import AppDrawer from "./components/AppDrawer";
+// import App from "./App";
+// import AppDrawer from "./components/AppDrawer";
 
-export const AppContext = createContext();
+import Template from "./Template";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+
+const AppContext = createContext();
 
 export function useApp() {
     return useContext(AppContext);
 }
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Template />,
+        children: [
+            {
+                path: "/",
+                element: <Home />
+            },
+            {
+                path: "/login",
+                element: <Login />
+            },
+            {
+                path: "/register",
+                element: <Register />
+            },
+            {
+                path: "/profile/:id",
+                element: <Profile />
+            }
+        ],
+    },
+]);
 
 export default function ThemeApp() {
 
@@ -32,7 +73,7 @@ export default function ThemeApp() {
     //     </AppContext.Provider>
     // )
 
-    const [showDrawer, setShowDrawer] = useState(true);
+    const [showDrawer, setShowDrawer] = useState(false);
     const [showForm, setShowForm] = useState(false);
     const [mode, setMode] = useState("dark");
     const [globalMsg, setGlobalMsg] = useState(null);
@@ -54,28 +95,13 @@ export default function ThemeApp() {
     return (
         <ThemeProvider theme={theme}>
             <AppContext.Provider value={{
-                showDrawer,
-                setShowDrawer,
-                showForm,
-                setShowForm,
-                globalMsg,
-                setGlobalMsg,
-                auth,
-                setAuth,
-                mode,
-                setMode
+                showDrawer, setShowDrawer,
+                showForm, setShowForm,
+                globalMsg, setGlobalMsg,
+                auth, setAuth,
+                mode, setMode
             }}>
-                <App />
-                <AppDrawer />
-                <Snackbar
-                    anchorOrigin={{
-                        horizontal: "center",
-                        vertical: "bottom",
-                    }}
-                    open={Boolean(globalMsg)}
-                    autoHideDuration={6000}
-                    onClose={() => setGlobalMsg(null)}
-                    message={globalMsg} />
+                <RouterProvider router={router} />
                 <CssBaseline />
             </AppContext.Provider>
         </ThemeProvider>

@@ -1,5 +1,4 @@
 import { useContext, useRef } from "react";
-import { AppContext } from "../ThemedApp";
 
 import {
     Box,

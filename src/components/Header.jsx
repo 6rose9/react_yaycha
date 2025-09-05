@@ -24,7 +24,7 @@ import {
 
 export default function Header() {
 
-    const { showForm, setShowForm, mode, setMode } = useApp();
+    const { showForm, setShowForm, setShowDrawer, mode, setMode } = useApp();
 
     return (
         <AppBar position="static">
@@ -32,7 +32,7 @@ export default function Header() {
                 <IconButton
                     color="inherit"
                     edge="start">
-                    <MenuIcon />
+                    <MenuIcon onClick={() => setShowDrawer(true)} />
                 </IconButton>
 
                 <Typography sx={{ color: "text.fade", flexGrow: 1, ml: 2 }}>Yaycha</Typography>
@@ -59,7 +59,7 @@ export default function Header() {
                         </IconButton>
                     )}
                 </Box>
-                
+
             </Toolbar>
         </AppBar>
     );
