@@ -1,12 +1,15 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import App from "../App";
 
-export const AppContent = createContext();
+export const AppContext = createContext();
 
-export default function ThemeApp(){
+export default function ThemeApp() {
+
+    const [mode, setMode] = useState("dark");
+
     return (
-        <AppContent.Provider value={{mode:"dark"}}>
+        <AppContext.Provider value={{ mode, setMode }}>
             <App />
-        </AppContent.Provider>
+        </AppContext.Provider>
     )
 }

@@ -1,9 +1,12 @@
-// useRef => local reference, scoped to the component. (id is global identifier )
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { AppContext } from "./ThemedApp";
 
 export default function Form({ add }) {
+
+    const {mode} = useContext(AppContext);
     const contentRef = useRef();
     const nameRef = useRef();
+
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
@@ -19,7 +22,7 @@ export default function Form({ add }) {
                 padding: 10,
                 borderRadius: 8,
                 marginBottom: 20,
-                background: "#def",
+                background: mode === "dark" ? "#555" : "#def",
             }}>
             <input
                 ref={contentRef}

@@ -1,4 +1,5 @@
-/**
+/** Context Provider
+
  *  What
  *  passing data through the component tree without having to pass props down manually at every level, 
  *  sharing data/state across components
@@ -15,3 +16,5 @@
  *  .Provider → wraps components and provides a value (state, functions, etc.)
  *  useContext() → lets any component read that value directly, without passing props down
  */
+
+ // useRef => local reference, scoped to the component. (id is global identifier )
