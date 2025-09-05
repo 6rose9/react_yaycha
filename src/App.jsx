@@ -15,7 +15,7 @@ export default function App() {
   // const { mode, setMode } = useContext(AppContext);
   // const [showForm, setShowForm] = useState(false);
 
-  const { showForm } = useApp();
+  const { showForm, setGlobalMsg } = useApp();
 
   const [data, setData] = useState([
     { id: 1, content: "Hello World!", name: "Alice" },
@@ -26,11 +26,13 @@ export default function App() {
 
   const remove = (id) => {
     setData(data.filter(item => item.id !== id));
+    setGlobalMsg("An item deleted");
   };
 
   const add = (content, name) => {
     const id = data[data.length - 1].id + 1;
     setData = ([...data, { id, content, name }]);
+    setGlobalMsg("An item added");
   }
 
   return (
