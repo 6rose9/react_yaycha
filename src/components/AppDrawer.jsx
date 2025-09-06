@@ -18,6 +18,7 @@ import {
     PersonAdd as RegisterIcon,
     Login as LoginIcon,
     AddCircle as ReduxIcon,
+    SupervisedUserCircle as UserIcon,
 } from "@mui/icons-material";
 
 import { useNavigate } from "react-router-dom";
@@ -85,6 +86,15 @@ export default function AppDrawer() {
                                 <ReduxIcon />
                             </ListItemIcon>
                             <ListItemText>Redux Example</ListItemText>
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem>
+                        <ListItemButton onClick={() => navigate("users")}>
+                            <ListItemIcon>
+                                <UserIcon />
+                            </ListItemIcon>
+                            <ListItemText>Users</ListItemText>
                         </ListItemButton>
                     </ListItem>
 
