@@ -17,4 +17,54 @@
  *  useContext() → lets any component read that value directly, without passing props down
  */
 
+ /** react-redux (the bridge between React & Redux)
+
+ * dispatch sends an action.
+ * reducer updates the state.
+ * store holds the new state
+ * useSelector re-renders the UI with fresh state.
+
+ *  <Provider store={store}> → wraps the app so React can use Redux.
+
+ *  useSelector(callback) → read data from the store.
+
+ *  useDispatch() → get the dispatch function to send actions.connect() (older pattern, rarely used with hooks now).
+
+ *  connect() (older pattern, rarely used with hooks now).
+
+ */
+
+ /** Redux Toolkit (RTK)
+
+ *  What
+ *  state management library for React (and other apps)
+ *  store global state (data shared across components).
+ *  update state in a predictable way
+ *
+ *  Why 
+ *  organized code → slices per feature (counterSlice, authSlice).
+ *  immutable made easy → you can “mutate” state but it’s safe.
+ *  
+ *  When should use
+ *  you have global state shared by many components(authentication (logged in/out), theme (dark/light).)
+ *  if multiple distant components need the same data → use Redux
+ *
+ *  How 
+ *  UI Component ---> dispatch(action) ---> reducer (slice) ---> store (new state)
+   ^-------------------------------------------------------------------|
+   |-------------------------- useSelector(state) ---------------------|
+
+
+ *  configureStore() → creates the Redux store (with DevTools, middleware, etc. pre-configured).
+
+ *  createSlice() → defines reducers + actions in one step.
+
+ *  createAsyncThunk() → handle async logic (API calls).
+
+ *  createReducer() (less common, createSlice is preferred).
+
+ *  createAction() (for custom actions, but usually slice covers it).
+
+ */
+
  // useRef => local reference, scoped to the component. (id is global identifier )

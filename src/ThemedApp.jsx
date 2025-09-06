@@ -31,6 +31,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import ReduxExample from "./pages/ReduxExample";
 
 const AppContext = createContext();
 
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             {
                 path: "/profile/:id",
                 element: <Profile />
+            },
+            {
+                path: "/redux-example",
+                element: <ReduxExample />
             }
         ],
     },

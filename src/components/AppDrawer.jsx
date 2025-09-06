@@ -17,6 +17,7 @@ import {
     Logout as LogoutIcon,
     PersonAdd as RegisterIcon,
     Login as LoginIcon,
+    AddCircle as ReduxIcon,
 } from "@mui/icons-material";
 
 import { useNavigate } from "react-router-dom";
@@ -78,6 +79,15 @@ export default function AppDrawer() {
                         </ListItemButton>
                     </ListItem>
 
+                    <ListItem>
+                        <ListItemButton onClick={() => navigate("redux-example")}>
+                            <ListItemIcon>
+                                <ReduxIcon />
+                            </ListItemIcon>
+                            <ListItemText>Redux Example</ListItemText>
+                        </ListItemButton>
+                    </ListItem>
+
                     <Divider />
 
                     {auth && (
@@ -105,7 +115,7 @@ export default function AppDrawer() {
                     {!auth && (
                         <>
                             <ListItem>
-                                <ListItemButton onClick={()=>navigate("/register")}>
+                                <ListItemButton onClick={() => navigate("/register")}>
                                     <ListItemIcon>
                                         <RegisterIcon />
                                     </ListItemIcon>
